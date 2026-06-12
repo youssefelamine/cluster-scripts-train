@@ -1,0 +1,25 @@
+===== STEP 5 ATTACK COUNTERS =====
+Mon May 18 03:28:15 PM CEST 2026
+--- s0 ---
+ cookie=0x0, duration=40.886s, table=0, n_packets=0, n_bytes=0, idle_age=40, priority=65535,ip,nw_dst=8.8.8.8 actions=output:6
+ cookie=0x0, duration=40.879s, table=0, n_packets=19436, n_bytes=9940354, idle_age=0, priority=65535,dl_dst=00:00:00:00:01:00 actions=output:5
+ cookie=0x0, duration=40.872s, table=0, n_packets=5756, n_bytes=3184809, idle_age=17, priority=65535,dl_dst=00:00:00:00:00:01 actions=output:1
+ cookie=0x0, duration=40.864s, table=0, n_packets=0, n_bytes=0, idle_age=40, priority=65535,dl_dst=00:00:00:00:00:02 actions=output:2
+ cookie=0x0, duration=40.856s, table=0, n_packets=0, n_bytes=0, idle_age=40, priority=65535,dl_dst=00:00:00:00:00:03 actions=output:2
+ cookie=0x0, duration=40.849s, table=0, n_packets=0, n_bytes=0, idle_age=40, priority=65535,dl_dst=00:00:00:00:00:04 actions=output:3
+ cookie=0x0, duration=40.842s, table=0, n_packets=0, n_bytes=0, idle_age=40, priority=65535,dl_dst=00:00:00:00:00:05 actions=output:4
+ cookie=0x0, duration=40.831s, table=0, n_packets=0, n_bytes=0, idle_age=40, priority=65535,dl_dst=00:00:00:00:00:06 actions=output:4
+ cookie=0x0, duration=41.106s, table=0, n_packets=19, n_bytes=798, idle_age=0, priority=2,arp,arp_op=1 actions=FLOOD
+--- s101 attacker path ---
+ cookie=0x0, duration=40.817s, table=0, n_packets=0, n_bytes=0, idle_age=40, priority=65535,ip,nw_dst=8.8.8.8 actions=output:1
+ cookie=0x0, duration=40.810s, table=0, n_packets=31102, n_bytes=15710112, idle_age=0, priority=65535,dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:01:00 actions=output:1
+ cookie=0x0, duration=40.804s, table=0, n_packets=5756, n_bytes=3184809, idle_age=17, priority=65535,dl_dst=00:00:00:00:00:01 actions=output:5
+ cookie=0x0, duration=41.108s, table=0, n_packets=18, n_bytes=756, idle_age=0, priority=499,arp,in_port=1,arp_op=1 actions=output:5
+ cookie=0x0, duration=41.099s, table=0, n_packets=1, n_bytes=42, idle_age=25, priority=499,arp,in_port=5,arp_op=1 actions=output:1
+ cookie=0x0, duration=41.091s, table=0, n_packets=0, n_bytes=0, idle_age=41, priority=499,arp,in_port=2,arp_op=1 actions=output:1
+ cookie=0x0, duration=41.084s, table=0, n_packets=0, n_bytes=0, idle_age=41, priority=499,arp,in_port=3,arp_op=1 actions=output:1
+ cookie=0x0, duration=41.077s, table=0, n_packets=0, n_bytes=0, idle_age=41, priority=499,arp,in_port=4,arp_op=1 actions=output:1
+ cookie=0x0, duration=41.070s, table=0, n_packets=0, n_bytes=0, idle_age=41, priority=0,arp,arp_op=1 actions=FLOOD
+--- API s101-s0 ---
+{"bw":"3.1","rx_bytes":9525576,"tx_bytes":9525576}
+

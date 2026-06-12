@@ -1,0 +1,993 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1779111071.697336   86693 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1779111071.697618   86693 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+I0000 00:00:1779111071.752998   86693 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1779111073.614430   86693 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1779111073.614801   86693 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+E0000 00:00:1779111074.843164   86693 cuda_platform.cc:52] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+WARNING: using python at python3!
+-> Reading hosts from /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/network/../input-data/hosts-toplogy-6hosts.json
+--> init called
+ * Serving Flask app 'ApiManager'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+*** Removing excess controllers/ofprotocols/ofdatapaths/pings/noxes
+killall controller ofprotocol ofdatapath ping nox_corelt-nox_core ovs-openflowd ovs-controllerovs-testcontroller udpbwtest mnexec ivs ryu-manager 2> /dev/null
+killall -9 controller ofprotocol ofdatapath ping nox_corelt-nox_core ovs-openflowd ovs-controllerovs-testcontroller udpbwtest mnexec ivs ryu-manager 2> /dev/null
+pkill -9 -f "sudo mnexec"
+*** Removing junk from /tmp
+rm -f /tmp/vconn* /tmp/vlogs* /tmp/*.out /tmp/*.log
+*** Removing old X11 tunnels
+*** Removing excess kernel datapaths
+ps ax | egrep -o 'dp[0-9]+' | sed 's/dp/nl:/'
+***  Removing OVS datapaths
+ovs-vsctl --timeout=1 list-br
+ovs-vsctl --timeout=1 list-br
+*** Removing all links of the pattern foo-ethX
+ip link show | egrep -o '([-_.[:alnum:]]+-eth[[:digit:]]+)'
+ip link show
+*** Killing stale mininet node processes
+pkill -9 -f mininet:
+*** Shutting down stale tunnels
+pkill -9 -f Tunnel=Ethernet
+pkill -9 -f .ssh/mn
+rm -f ~/.ssh/mn/*
+*** Cleanup complete.
+*** Creating switches
+*** Init switch s0 s101 with bw = 2.5  ***
+*** Init switch s0 s102 with bw = 3.1  ***
+*** Init switch s0 s103 with bw = 1.9  ***
+*** Init switch s0 s104 with bw = 2.2  ***
+*** Init switch s101 s102 with bw = 6.1  ***
+*** Init switch s101 s103 with bw = 6.7  ***
+*** Init switch s101 s104 with bw = 8.5  ***
+*** Init switch s102 s103 with bw = 5.2  ***
+*** Init switch s102 s104 with bw = 8.8  ***
+*** Init switch s103 s104 with bw = 5.5  ***
+*** Init host h1 with bw = 5.2  ***
+*** Init host h2 with bw = 2.2  ***
+*** Init host h3 with bw = 0.7  ***
+*** Init host h4 with bw = 1.3  ***
+*** Init host h5 with bw = 2.2  ***
+*** Init host h6 with bw = 2.5  ***
+*** Creating hosts
+*** Init host hs(3, 10.0.1.101, 00:00:00:00:01:00) ***
+*** Init host h1(3, 10.0.1.1, 00:00:00:00:00:01) ***
+*** Init host h2(1, 10.0.1.2, 00:00:00:00:00:02) ***
+*** Init host h3(1, 10.0.1.3, 00:00:00:00:00:03) ***
+*** Init host h4(1, 10.0.1.4, 00:00:00:00:00:04) ***
+*** Init host h5(1, 10.0.1.5, 00:00:00:00:00:05) ***
+*** Init host h6(1, 10.0.1.6, 00:00:00:00:00:06) ***
+*** Creating links
+*** Init link s101(s101-eth0) --> s0(s0-eth101) with bw = 2.5  ***
+*** Init link s102(s102-eth0) --> s0(s0-eth102) with bw = 3.1  ***
+*** Init link s103(s103-eth0) --> s0(s0-eth103) with bw = 1.9  ***
+*** Init link s104(s104-eth0) --> s0(s0-eth104) with bw = 2.2  ***
+*** Init link s101(s101-eth102) --> s102(s102-eth101) with bw = 6.1  ***
+*** Init link s101(s101-eth103) --> s103(s103-eth101) with bw = 6.7  ***
+*** Init link s101(s101-eth104) --> s104(s104-eth101) with bw = 8.5  ***
+*** Init link s102(s102-eth103) --> s103(s103-eth102) with bw = 5.2  ***
+*** Init link s102(s102-eth104) --> s104(s104-eth102) with bw = 8.8  ***
+*** Init link s103(s103-eth104) --> s104(s104-eth103) with bw = 5.5  ***
+*** Init link s1(s1-eth101) --> s101(s101-eth1) with bw = 5.2  ***
+*** Init link s2(s2-eth102) --> s102(s102-eth2) with bw = 2.2  ***
+*** Init link s3(s3-eth102) --> s102(s102-eth3) with bw = 0.7  ***
+*** Init link s4(s4-eth103) --> s103(s103-eth4) with bw = 1.3  ***
+*** Init link s5(s5-eth104) --> s104(s104-eth5) with bw = 2.2  ***
+*** Init link s6(s6-eth104) --> s104(s104-eth6) with bw = 2.5  ***
+*** Init link hs(hs-eth0) --> s0(s0-eth0) with bw = 9.1  ***
+*** Init link h1(h1-eth0) --> s1(s1-eth0) with bw = 5.2  ***
+*** Init link h2(h2-eth0) --> s2(s2-eth0) with bw = 2.2  ***
+*** Init link h3(h3-eth0) --> s3(s3-eth0) with bw = 0.7  ***
+*** Init link h4(h4-eth0) --> s4(s4-eth0) with bw = 1.3  ***
+*** Init link h5(h5-eth0) --> s5(s5-eth0) with bw = 2.2  ***
+*** Init link h6(h6-eth0) --> s6(s6-eth0) with bw = 2.5  ***
+*** Creating network
+*** Adding hosts:
+h1 h2 h3 h4 h5 h6 hs 
+*** Adding switches:
+s0 s1 s2 s3 s4 s5 s6 s101 s102 s103 s104 
+*** Adding links:
+(9.10Mbit) (9.10Mbit) (s0, hs) (5.20Mbit) (5.20Mbit) (s1, h1) (5.20Mbit) (5.20Mbit) (s1, s101) (2.20Mbit) (2.20Mbit) (s2, h2) (2.20Mbit) (2.20Mbit) (s2, s102) (0.70Mbit) (0.70Mbit) (s3, h3) (0.70Mbit) (0.70Mbit) (s3, s102) (1.30Mbit) (1.30Mbit) (s4, h4) (1.30Mbit) (1.30Mbit) (s4, s103) (2.20Mbit) (2.20Mbit) (s5, h5) (2.20Mbit) (2.20Mbit) (s5, s104) (2.50Mbit) (2.50Mbit) (s6, h6) (2.50Mbit) (2.50Mbit) (s6, s104) (2.50Mbit) (2.50Mbit) (s101, s0) (6.10Mbit) (6.10Mbit) (s101, s102) (6.70Mbit) (6.70Mbit) (s101, s103) (8.50Mbit) (8.50Mbit) (s101, s104) (3.10Mbit) (3.10Mbit) (s102, s0) (5.20Mbit) (5.20Mbit) (s102, s103) (8.80Mbit) (8.80Mbit) (s102, s104) (1.90Mbit) (1.90Mbit) (s103, s0) (5.50Mbit) (5.50Mbit) (s103, s104) (2.20Mbit) (2.20Mbit) (s104, s0) 
+*** Configuring hosts
+h1 (cfs 1200000/100000us) h2 (cfs 400000/100000us) h3 (cfs 400000/100000us) h4 (cfs 400000/100000us) h5 (cfs 400000/100000us) h6 (cfs 400000/100000us) hs (cfs 1200000/100000us) 
+*** Starting controller
+
+*** Starting 11 switches
+s0 s1 s2 s3 s4 s5 s6 s101 s102 s103 s104 ...(9.10Mbit) (2.50Mbit) (3.10Mbit) (1.90Mbit) (2.20Mbit) (5.20Mbit) (5.20Mbit) (2.20Mbit) (2.20Mbit) (0.70Mbit) (0.70Mbit) (1.30Mbit) (1.30Mbit) (2.20Mbit) (2.20Mbit) (2.50Mbit) (2.50Mbit) (5.20Mbit) (2.50Mbit) (6.10Mbit) (6.70Mbit) (8.50Mbit) (2.20Mbit) (0.70Mbit) (6.10Mbit) (3.10Mbit) (5.20Mbit) (8.80Mbit) (1.30Mbit) (6.70Mbit) (5.20Mbit) (1.90Mbit) (5.50Mbit) (2.20Mbit) (2.50Mbit) (8.50Mbit) (8.80Mbit) (5.50Mbit) (2.20Mbit) 
+*** Testing network
+s0 ==> ovs-ofctl add-flow s0 nw_proto=1,priority=2,dl_type=0x806,actions=flood
+s101 ==> ovs-ofctl add-flow s101 nw_proto=1,priority=499,in_port=1,dl_type=0x806,actions=output:5
+s101 ==> ovs-ofctl add-flow s101 nw_proto=1,priority=499,in_port=5,dl_type=0x806,actions=output:1
+s101 ==> ovs-ofctl add-flow s101 nw_proto=1,priority=499,in_port=2,dl_type=0x806,actions=output:1
+s101 ==> ovs-ofctl add-flow s101 nw_proto=1,priority=499,in_port=3,dl_type=0x806,actions=output:1
+s101 ==> ovs-ofctl add-flow s101 nw_proto=1,priority=499,in_port=4,dl_type=0x806,actions=output:1
+s101 ==> ovs-ofctl add-flow s101 nw_proto=1,priority=0,dl_type=0x806,actions=flood
+s102 ==> ovs-ofctl add-flow s102 nw_proto=1,priority=499,in_port=1,dl_type=0x806,actions=output:5,output:6
+s102 ==> ovs-ofctl add-flow s102 nw_proto=1,priority=499,in_port=5,dl_type=0x806,actions=output:1
+s102 ==> ovs-ofctl add-flow s102 nw_proto=1,priority=499,in_port=6,dl_type=0x806,actions=output:1
+s102 ==> ovs-ofctl add-flow s102 nw_proto=1,priority=499,in_port=2,dl_type=0x806,actions=output:1
+s102 ==> ovs-ofctl add-flow s102 nw_proto=1,priority=499,in_port=3,dl_type=0x806,actions=output:1
+s102 ==> ovs-ofctl add-flow s102 nw_proto=1,priority=499,in_port=4,dl_type=0x806,actions=output:1
+s102 ==> ovs-ofctl add-flow s102 nw_proto=1,priority=0,dl_type=0x806,actions=flood
+s103 ==> ovs-ofctl add-flow s103 nw_proto=1,priority=499,in_port=1,dl_type=0x806,actions=output:5
+s103 ==> ovs-ofctl add-flow s103 nw_proto=1,priority=499,in_port=5,dl_type=0x806,actions=output:1
+s103 ==> ovs-ofctl add-flow s103 nw_proto=1,priority=499,in_port=2,dl_type=0x806,actions=output:1
+s103 ==> ovs-ofctl add-flow s103 nw_proto=1,priority=499,in_port=3,dl_type=0x806,actions=output:1
+s103 ==> ovs-ofctl add-flow s103 nw_proto=1,priority=499,in_port=4,dl_type=0x806,actions=output:1
+s103 ==> ovs-ofctl add-flow s103 nw_proto=1,priority=0,dl_type=0x806,actions=flood
+s104 ==> ovs-ofctl add-flow s104 nw_proto=1,priority=499,in_port=1,dl_type=0x806,actions=output:5,output:6
+s104 ==> ovs-ofctl add-flow s104 nw_proto=1,priority=499,in_port=5,dl_type=0x806,actions=output:1
+s104 ==> ovs-ofctl add-flow s104 nw_proto=1,priority=499,in_port=6,dl_type=0x806,actions=output:1
+s104 ==> ovs-ofctl add-flow s104 nw_proto=1,priority=499,in_port=2,dl_type=0x806,actions=output:1
+s104 ==> ovs-ofctl add-flow s104 nw_proto=1,priority=499,in_port=3,dl_type=0x806,actions=output:1
+s104 ==> ovs-ofctl add-flow s104 nw_proto=1,priority=499,in_port=4,dl_type=0x806,actions=output:1
+s104 ==> ovs-ofctl add-flow s104 nw_proto=1,priority=0,dl_type=0x806,actions=flood
+s1 ==> ovs-ofctl add-flow s1 nw_proto=1,priority=499,dl_type=0x806,actions=flood
+s2 ==> ovs-ofctl add-flow s2 nw_proto=1,priority=499,dl_type=0x806,actions=flood
+s3 ==> ovs-ofctl add-flow s3 nw_proto=1,priority=499,dl_type=0x806,actions=flood
+s4 ==> ovs-ofctl add-flow s4 nw_proto=1,priority=499,dl_type=0x806,actions=flood
+s5 ==> ovs-ofctl add-flow s5 nw_proto=1,priority=499,dl_type=0x806,actions=flood
+s6 ==> ovs-ofctl add-flow s6 nw_proto=1,priority=499,dl_type=0x806,actions=flood
+s0 ==> ovs-ofctl add-flow s0 ip,priority=65535,nw_dst=8.8.8.8,actions=output:6
+s0 ==> ovs-ofctl add-flow s0 priority=65535,dl_dst=00:00:00:00:01:00,actions=output:5
+s0 ==> ovs-ofctl add-flow s0 priority=65535,dl_dst=00:00:00:00:00:01,actions=output:1
+s0 ==> ovs-ofctl add-flow s0 priority=65535,dl_dst=00:00:00:00:00:02,actions=output:2
+s0 ==> ovs-ofctl add-flow s0 priority=65535,dl_dst=00:00:00:00:00:03,actions=output:2
+s0 ==> ovs-ofctl add-flow s0 priority=65535,dl_dst=00:00:00:00:00:04,actions=output:3
+s0 ==> ovs-ofctl add-flow s0 priority=65535,dl_dst=00:00:00:00:00:05,actions=output:4
+s0 ==> ovs-ofctl add-flow s0 priority=65535,dl_dst=00:00:00:00:00:06,actions=output:4
+s1 ==> ovs-ofctl add-flow s1 ip,priority=65535,in_port=2,nw_dst=8.8.8.8,actions=output:1
+s1 ==> ovs-ofctl add-flow s1 priority=65535,in_port=2,dl_dst=00:00:00:00:01:00,actions=output:1
+s1 ==> ovs-ofctl add-flow s1 priority=65535,dl_dst=00:00:00:00:00:01,actions=output:2
+s101 ==> ovs-ofctl add-flow s101 ip,priority=65535,nw_dst=8.8.8.8,actions=output:1
+s101 ==> ovs-ofctl add-flow s101 priority=65535,dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:01:00,actions=output:1
+s101 ==> ovs-ofctl add-flow s101 priority=65535,dl_dst=00:00:00:00:00:01,actions=output:5
+s2 ==> ovs-ofctl add-flow s2 ip,priority=65535,in_port=2,nw_dst=8.8.8.8,actions=output:1
+s2 ==> ovs-ofctl add-flow s2 priority=65535,in_port=2,dl_dst=00:00:00:00:01:00,actions=output:1
+s2 ==> ovs-ofctl add-flow s2 priority=65535,dl_dst=00:00:00:00:00:02,actions=output:2
+s102 ==> ovs-ofctl add-flow s102 ip,priority=65535,nw_dst=8.8.8.8,actions=output:1
+s102 ==> ovs-ofctl add-flow s102 priority=65535,dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:01:00,actions=output:1
+s102 ==> ovs-ofctl add-flow s102 priority=65535,dl_dst=00:00:00:00:00:02,actions=output:5
+s3 ==> ovs-ofctl add-flow s3 ip,priority=65535,in_port=2,nw_dst=8.8.8.8,actions=output:1
+s3 ==> ovs-ofctl add-flow s3 priority=65535,in_port=2,dl_dst=00:00:00:00:01:00,actions=output:1
+s3 ==> ovs-ofctl add-flow s3 priority=65535,dl_dst=00:00:00:00:00:03,actions=output:2
+s102 ==> ovs-ofctl add-flow s102 ip,priority=65535,nw_dst=8.8.8.8,actions=output:1
+s102 ==> ovs-ofctl add-flow s102 priority=65535,dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:01:00,actions=output:1
+s102 ==> ovs-ofctl add-flow s102 priority=65535,dl_dst=00:00:00:00:00:03,actions=output:6
+s4 ==> ovs-ofctl add-flow s4 ip,priority=65535,in_port=2,nw_dst=8.8.8.8,actions=output:1
+s4 ==> ovs-ofctl add-flow s4 priority=65535,in_port=2,dl_dst=00:00:00:00:01:00,actions=output:1
+s4 ==> ovs-ofctl add-flow s4 priority=65535,dl_dst=00:00:00:00:00:04,actions=output:2
+s103 ==> ovs-ofctl add-flow s103 ip,priority=65535,nw_dst=8.8.8.8,actions=output:1
+s103 ==> ovs-ofctl add-flow s103 priority=65535,dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:01:00,actions=output:1
+s103 ==> ovs-ofctl add-flow s103 priority=65535,dl_dst=00:00:00:00:00:04,actions=output:5
+s5 ==> ovs-ofctl add-flow s5 ip,priority=65535,in_port=2,nw_dst=8.8.8.8,actions=output:1
+s5 ==> ovs-ofctl add-flow s5 priority=65535,in_port=2,dl_dst=00:00:00:00:01:00,actions=output:1
+s5 ==> ovs-ofctl add-flow s5 priority=65535,dl_dst=00:00:00:00:00:05,actions=output:2
+s104 ==> ovs-ofctl add-flow s104 ip,priority=65535,nw_dst=8.8.8.8,actions=output:1
+s104 ==> ovs-ofctl add-flow s104 priority=65535,dl_src=00:00:00:00:00:05,dl_dst=00:00:00:00:01:00,actions=output:1
+s104 ==> ovs-ofctl add-flow s104 priority=65535,dl_dst=00:00:00:00:00:05,actions=output:5
+s6 ==> ovs-ofctl add-flow s6 ip,priority=65535,in_port=2,nw_dst=8.8.8.8,actions=output:1
+s6 ==> ovs-ofctl add-flow s6 priority=65535,in_port=2,dl_dst=00:00:00:00:01:00,actions=output:1
+s6 ==> ovs-ofctl add-flow s6 priority=65535,dl_dst=00:00:00:00:00:06,actions=output:2
+s104 ==> ovs-ofctl add-flow s104 ip,priority=65535,nw_dst=8.8.8.8,actions=output:1
+s104 ==> ovs-ofctl add-flow s104 priority=65535,dl_src=00:00:00:00:00:06,dl_dst=00:00:00:00:01:00,actions=output:1
+s104 ==> ovs-ofctl add-flow s104 priority=65535,dl_dst=00:00:00:00:00:06,actions=output:6
+*** Running CLI
+*** Starting CLI:
+Switch:  s0
+port 		 intf
+0 		 lo
+5 		 s0-eth0
+1 		 s0-eth101
+2 		 s0-eth102
+3 		 s0-eth103
+4 		 s0-eth104
+6 		 s0-eth6
+Switch:  s1
+port 		 intf
+0 		 lo
+2 		 s1-eth0
+1 		 s1-eth101
+Switch:  s2
+port 		 intf
+0 		 lo
+2 		 s2-eth0
+1 		 s2-eth102
+Switch:  s3
+port 		 intf
+0 		 lo
+2 		 s3-eth0
+1 		 s3-eth102
+Switch:  s4
+port 		 intf
+0 		 lo
+2 		 s4-eth0
+1 		 s4-eth103
+Switch:  s5
+port 		 intf
+0 		 lo
+2 		 s5-eth0
+1 		 s5-eth104
+Switch:  s6
+port 		 intf
+0 		 lo
+2 		 s6-eth0
+1 		 s6-eth104
+Switch:  s101
+port 		 intf
+0 		 lo
+5 		 s101-eth1
+1 		 s101-eth0
+2 		 s101-eth102
+3 		 s101-eth103
+4 		 s101-eth104
+Switch:  s102
+port 		 intf
+0 		 lo
+5 		 s102-eth2
+6 		 s102-eth3
+2 		 s102-eth101
+1 		 s102-eth0
+3 		 s102-eth103
+4 		 s102-eth104
+Switch:  s103
+port 		 intf
+0 		 lo
+5 		 s103-eth4
+2 		 s103-eth101
+3 		 s103-eth102
+1 		 s103-eth0
+4 		 s103-eth104
+Switch:  s104
+port 		 intf
+0 		 lo
+5 		 s104-eth5
+6 		 s104-eth6
+2 		 s104-eth101
+3 		 s104-eth102
+4 		 s104-eth103
+1 		 s104-eth0
+{'s0': {'lo': 0, 's0-eth0': 5, 's0-eth101': 1, 's0-eth102': 2, 's0-eth103': 3, 's0-eth104': 4, 's0-eth6': 6}, 's1': {'lo': 0, 's1-eth0': 2, 's1-eth101': 1}, 's2': {'lo': 0, 's2-eth0': 2, 's2-eth102': 1}, 's3': {'lo': 0, 's3-eth0': 2, 's3-eth102': 1}, 's4': {'lo': 0, 's4-eth0': 2, 's4-eth103': 1}, 's5': {'lo': 0, 's5-eth0': 2, 's5-eth104': 1}, 's6': {'lo': 0, 's6-eth0': 2, 's6-eth104': 1}, 's101': {'lo': 0, 's101-eth1': 5, 's101-eth0': 1, 's101-eth102': 2, 's101-eth103': 3, 's101-eth104': 4}, 's102': {'lo': 0, 's102-eth2': 5, 's102-eth3': 6, 's102-eth101': 2, 's102-eth0': 1, 's102-eth103': 3, 's102-eth104': 4}, 's103': {'lo': 0, 's103-eth4': 5, 's103-eth101': 2, 's103-eth102': 3, 's103-eth0': 1, 's103-eth104': 4}, 's104': {'lo': 0, 's104-eth5': 5, 's104-eth6': 6, 's104-eth101': 2, 's104-eth102': 3, 's104-eth103': 4, 's104-eth0': 1}}
+Executing OvsIntermediate.__init__
+mininet> 127.0.0.1 - - [18/May/2026 15:31:26] "GET /get-switches-interfaces HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:31:26] "GET /host-ip/h1 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:31:26] "GET /host-ip/h2 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:31:26] "GET /host-ip/h3 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:31:26] "GET /host-ip/h4 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:31:26] "GET /host-ip/h5 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:31:26] "GET /host-ip/h6 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:31:26] "GET /host-ip/hs HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:31:26] "GET /get-switches-interfaces HTTP/1.1" 200 -
+Running as user "root" and group "root". This could be dangerous.
+127.0.0.1 - - [18/May/2026 15:31:26] "GET /get-switches-interfaces HTTP/1.1" 200 -
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
+(Network) ==> stopping server...
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
+(Network) ==> starting server...
+(Network) ==> Resetting TCP for hosts: ['hs']127.0.0.1 - - [18/May/2026 15:31:26] "GET /reset-tcp-receivers HTTP/1.1" 200 -
+Running as user "root" and group "root". This could be dangerous.
+Capturing on 7 interfaces
+127.0.0.1 - - [18/May/2026 15:31:30] "GET /get-switches-interfaces HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:31:30] "GET /start-tcp-flow/h2/hs/40000 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:31:30] "GET /start-tcp-flow/h3/hs/40000 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:31:30] "GET /start-tcp-flow/h4/hs/40000 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:31:30] "GET /start-tcp-flow/h5/hs/40000 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:31:30] "GET /start-tcp-flow/h6/hs/40000 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:31:31] "GET /get-switches-interfaces HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:31:31] "GET /start-mhddos/h1/hs/ICMP HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:32:01] "GET /get-switches-interfaces HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:32:01] "GET /stop-mhddos/h1/hs HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:32:11] "GET /get-switches-interfaces HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:32:11] "GET /stop-all-tcp-flows HTTP/1.1" 200 -
+100621 packets captured
+127.0.0.1 - - [18/May/2026 15:32:31] "GET /get-switches-interfaces HTTP/1.1" 200 -
+State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+LISTEN 0      6         10.0.1.101:80        0.0.0.0:*    users:(("python3",pid=87885,fd=5))
+
+(Network) ==> port <80> in host <hs> is used by 'pid' <87885>
+(Network) ==> stopping server...
+(Network) ==> Stopped TCP for hosts: ['hs']127.0.0.1 - - [18/May/2026 15:32:31] "GET /stop-tcp-receivers HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:32:33] "GET /get-switches-interfaces HTTP/1.1" 200 -
+(Reinforcement) ================> Main Started
+(Reinforcement) ==================> Episodes: 1
+(Reinforcement) ==================> Steps: 1
+(Reinforcement) ==================> Number of controlled switches: 4
+(Reinforcement) ==================> Checkpoint every: 5 episode(s)
+(Reinforcement) ==================> Keep periodic checkpoints: 10
+(Reinforcement) Configuration.__init__()
+(Reinforcement) ==> All figures will be saved in /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/results/train_2026_05_18_15_31_14/figs
+(Reinforcement) ==> All data will be saved in /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/results/train_2026_05_18_15_31_14/data
+(Reinforcement) ==> All CIC results will be saved in /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/results/train_2026_05_18_15_31_14/cic
+(Reinforcement) ==> All RL Models will be saved in /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/results/train_2026_05_18_15_31_14/models
+(Reinforcement) ==> If actions are prefilled, they will be read from /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/prefilled-actions.txt
+(Reinforcement) ==> All RL Stats (rewards, etc...) will be saved in /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/results/train_2026_05_18_15_31_14/rl_stats
+(Reinforcement) ==> All Configs will be saved in /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/results/train_2026_05_18_15_31_14/configs
+(Reinforcement) ==> Reading hosts from /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/input-data/hosts-toplogy-6hosts.json
+(Reinforcement) Environment.__init__()
+(Reinforcement) CmdManager.__init__()
+(Reinforcement) HttpClient.__init__()
+<------> Target Model Updated
+----> Environment reset
+(Reinforcement) ==================> Episode 1 Started
+(Reinforcement) ==> environment.hosts = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'hs']
+(Reinforcement) ==> Setting attacker h1
+(Reinforcement) ==> environment.ACTIONS = ['bw:s101:s0:0', 'bw:s101:s0:1', 'bw:s102:s0:0', 'bw:s102:s0:1', 'bw:s103:s0:0', 'bw:s103:s0:1', 'bw:s104:s0:0', 'bw:s104:s0:1', 'bw:s101:s102:0', 'bw:s101:s102:1', 'bw:s101:s103:0', 'bw:s101:s103:1', 'bw:s101:s104:0', 'bw:s101:s104:1', 'bw:s102:s103:0', 'bw:s102:s103:1', 'bw:s102:s104:0', 'bw:s102:s104:1', 'bw:s103:s104:0', 'bw:s103:s104:1', 'redirect:h1:through:s101', 'redirect:h1:through:s102', 'redirect:h1:through:s103', 'redirect:h1:through:s104', 'redirect:h2:through:s101', 'redirect:h2:through:s102', 'redirect:h2:through:s103', 'redirect:h2:through:s104', 'redirect:h3:through:s101', 'redirect:h3:through:s102', 'redirect:h3:through:s103', 'redirect:h3:through:s104', 'redirect:h4:through:s101', 'redirect:h4:through:s102', 'redirect:h4:through:s103', 'redirect:h4:through:s104', 'redirect:h5:through:s101', 'redirect:h5:through:s102', 'redirect:h5:through:s103', 'redirect:h5:through:s104', 'redirect:h6:through:s101', 'redirect:h6:through:s102', 'redirect:h6:through:s103', 'redirect:h6:through:s104', 'NOTHING']
+(Reinforcement) ==> len(environment.ACTIONS) = 45
+(Reinforcement) ----> Executing /home/user12/myenv/bin/python3 /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/network/EntryPoint.py --servers ['hs'] --attackers ['h1'] --hosts-topo-file hosts-toplogy-6hosts.json --nbr-controlled-switches 4 --manuel-receivers
+(Reinforcement) --> Network started
+(Reinforcement) Waiting for API server to accept connections...
+(Reinforcement) wait_for_server: Starting with max_retries=60, initial_delay=2.0
+(Reinforcement) [Wait 1/60] Trying to connect to http://localhost:5000/get-switches-interfaces...
+(Reinforcement) ✓ API server is ready!
+Host h1 has IP 10.0.1.1
+Host h2 has IP 10.0.1.2
+Host h3 has IP 10.0.1.3
+Host h4 has IP 10.0.1.4
+Host h5 has IP 10.0.1.5
+Host h6 has IP 10.0.1.6
+Host hs has IP 10.0.1.101
+(Reinforcement) ==> environment.hosts_ips = {'h1': '10.0.1.1', 'h2': '10.0.1.2', 'h3': '10.0.1.3', 'h4': '10.0.1.4', 'h5': '10.0.1.5', 'h6': '10.0.1.6', 'hs': '10.0.1.101'}
+(Reinforcement) ==> environment.interfaces = ['s0-eth0', 's1-eth0', 's2-eth0', 's3-eth0', 's4-eth0', 's5-eth0', 's6-eth0']
+(Reinforcement) ----> Executing tshark -D
+(Reinforcement) ==> interface s0-eth0 has id 2
+(Reinforcement) ==> interface s1-eth0 has id 3
+(Reinforcement) ==> interface s2-eth0 has id 6
+(Reinforcement) ==> interface s3-eth0 has id 9
+(Reinforcement) ==> interface s4-eth0 has id 12
+(Reinforcement) ==> interface s5-eth0 has id 15
+(Reinforcement) ==> interface s6-eth0 has id 18
+(Reinforcement) ====================> Init Step Started
+(Reinforcement) ----> Executing tshark  -i 2 -i 3 -i 6 -i 9 -i 12 -i 15 -i 18 -F pcap -w /tmp/tshark_out.pcap
+(Reinforcement) --> TShark sniffing started
+(Reinforcement) ==> Host h2 sending to server hs
+(Reinforcement) ==> Host h3 sending to server hs
+(Reinforcement) ==> Host h4 sending to server hs
+(Reinforcement) ==> Host h5 sending to server hs
+(Reinforcement) ==> Host h6 sending to server hs
+(Reinforcement) ==> attacker h1 is attacking victim hs with ICMP attack
+(Reinforcement) <-- TShark sniffing stopped
+(Reinforcement) ==> PCAP file converted to libpcap format successfully
+(Reinforcement) --> Running CIC started
+(Reinforcement) ----> Executing cd /home/user12/Documents/CICFlowMeter && ./gradlew exeCMD -Psource=/tmp/tshark_out.pcap -Pdestination=/home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/tmp/cic_out
+(Reinforcement) ----> Out: type Jar
+type JavaExec
+:compileJava UP-TO-DATE
+:processResources UP-TO-DATE
+:classes UP-TO-DATE
+:exeCMD
+cic.cs.unb.ca.ifm.Cmd You select: /tmp/tshark_out.pcap
+cic.cs.unb.ca.ifm.Cmd Out folder: /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/tmp/cic_out
+cic.cs.unb.ca.ifm.Cmd CICFlowMeter received 1 pcap file
+Working on... tshark_out.pcap
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow closed due to FIN Flag
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow received 2 FIN packets
+tshark_out.pcap -> 1 flows 
+tshark_out.pcap -> 2 flows 
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow closed due to FIN Flag
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow received 2 FIN packets
+tshark_out.pcap -> 3 flows 
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow closed due to FIN Flag
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow received 2 FIN packets
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow received 3 FIN packets
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow received 4 FIN packets
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow received 5 FIN packets
+tshark_out.pcap -> 4 flows 
+tshark_out.pcap -> 5 flows 
+tshark_out.pcap -> 6 flows 
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow closed due to FIN Flag
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow received 2 FIN packets
+tshark_out.pcap -> 7 flows 
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow closed due to FIN Flag
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow closed due to FIN Flag
+tshark_out.pcap -> 8 flows 
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow closed due to FIN Flag
+tshark_out.pcap -> 9 flows 
+tshark_out.pcap is done. total 14 flows 
+Packet stats: Total=100621,Valid=100411,Discarded=210
+-------------------------------------------------------------------------------
+
+BUILD SUCCESSFUL in 2s
+3 actionable tasks: 1 executed, 2 up-to-date
+
+(Reinforcement) ----> Error: 
+(Reinforcement) <-- Running CIC finished
+(Reinforcement) --> Running NetMetricsCalculator started
+(Reinforcement) ----> Executing /home/user12/myenv/bin/python3 /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/reinforcement/NetMetricsCalculator.py -s 10.0.1.101 -p 80 -hip [10.0.1.2,10.0.1.3,10.0.1.4,10.0.1.5,10.0.1.6] -t 40 -b 512 -pf /tmp/tshark_out.pcap -o /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/tmp/metrics.json
+(Reinforcement) ----> Out: (NetMetricsCalculator) --> Reading pcap file at /tmp/tshark_out.pcap
+(NetMetricsCalculator) --> Host 10.0.1.2 started
+(NetMetricsCalculator) --> Host 10.0.1.3 started
+(NetMetricsCalculator) --> Host 10.0.1.4 started
+(NetMetricsCalculator) --> Host 10.0.1.5 started
+(NetMetricsCalculator) --> Host 10.0.1.6 started
+(NetMetricsCalculator) --> Average latency: 0.00004533052 seconds (0.04533052 ms) for 225 packets
+(NetMetricsCalculator) --> Average latency: 0.0000227015 seconds (0.0227015 ms) for 174 packets
+(NetMetricsCalculator) --> Average latency: 0.00007360032608695652173913043478 seconds (0.07360032608695652173913043478 ms) for 138 packets
+(NetMetricsCalculator) --> Average latency: 0.0005194841282051282051282051282 seconds (0.5194841282051282051282051282 ms) for 195 packets
+(NetMetricsCalculator) --> Average Packet Transmission Time (APTT): 0.00239902820615243 seconds (2.3990282061524297 ms) for 40 seconds
+(NetMetricsCalculator) --> Average latency: 0.0005115293052631578947368421053 seconds (0.5115293052631578947368421053 ms) for 190 packets
+(NetMetricsCalculator) --> Average Packet Transmission Time (APTT): 0.0016675596144419783 seconds (1.6675596144419782 ms) for 40 seconds
+(NetMetricsCalculator) --> Throughput: 2456284.0 bps for 40 seconds
+(NetMetricsCalculator) --> Average Packet Transmission Time (APTT): 0.005887307505454671 seconds (5.887307505454671 ms) for 40 seconds
+(NetMetricsCalculator) --> Average Packet Transmission Time (APTT): 0.00432736883297117 seconds (4.32736883297117 ms) for 40 seconds
+(NetMetricsCalculator) --> Average Packet Transmission Time (APTT): 0.002057586707989866 seconds (2.057586707989866 ms) for 40 seconds
+(NetMetricsCalculator) --> Throughput: 1707358.0 bps for 40 seconds
+(NetMetricsCalculator) --> Throughput: 1990681.6 bps for 40 seconds
+(NetMetricsCalculator) --> Average jitter: 0.00004520169603524229074889867841 seconds (0.04520169603524229074889867841 ms) for 454 packets
+(NetMetricsCalculator) <-- Host 10.0.1.2 finished
+(NetMetricsCalculator) --> Throughput: 695734.0 bps for 40 seconds
+(NetMetricsCalculator) --> Throughput: 946533.6 bps for 40 seconds
+(NetMetricsCalculator) --> Average jitter: 0.000022404875 seconds (0.022404875 ms) for 352 packets
+(NetMetricsCalculator) <-- Host 10.0.1.4 finished
+(NetMetricsCalculator) --> Average jitter: 0.0005149104822335025380710659898 seconds (0.5149104822335025380710659898 ms) for 394 packets
+(NetMetricsCalculator) <-- Host 10.0.1.6 finished
+(NetMetricsCalculator) --> Average jitter: 0.0005017364536082474226804123711 seconds (0.5017364536082474226804123711 ms) for 388 packets
+(NetMetricsCalculator) <-- Host 10.0.1.5 finished
+(NetMetricsCalculator) --> Average jitter: 0.00007302817266187050359712230216 seconds (0.07302817266187050359712230216 ms) for 278 packets
+(NetMetricsCalculator) <-- Host 10.0.1.3 finished
+{'10.0.1.2': {'avg_latency_s': 4.533052e-05, 'avg_packet_transmission_time_s': 0.0016675596144419783, 'throughput_bps': 2456284.0, 'avg_jitter_s': 4.520169603524229e-05}, '10.0.1.3': {'avg_latency_s': 7.360032608695652e-05, 'avg_packet_transmission_time_s': 0.00432736883297117, 'throughput_bps': 946533.6, 'avg_jitter_s': 7.30281726618705e-05}, '10.0.1.4': {'avg_latency_s': 2.27015e-05, 'avg_packet_transmission_time_s': 0.00239902820615243, 'throughput_bps': 1707358.0, 'avg_jitter_s': 2.2404875e-05}, '10.0.1.5': {'avg_latency_s': 0.0005115293052631579, 'avg_packet_transmission_time_s': 0.005887307505454671, 'throughput_bps': 695734.0, 'avg_jitter_s': 0.0005017364536082474}, '10.0.1.6': {'avg_latency_s': 0.0005194841282051282, 'avg_packet_transmission_time_s': 0.002057586707989866, 'throughput_bps': 1990681.6, 'avg_jitter_s': 0.0005149104822335025}}
+(NetMetricsCalculator) <--> File /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/tmp/metrics.json created...
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /host-status-connected/h1 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get-host-interface-statistics/h1 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get-host-bw/h1 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get_host_path/h1 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /host-status-connected/h2 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get-host-interface-statistics/h2 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get-host-bw/h2 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get_host_path/h2 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /host-status-connected/h3 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get-host-interface-statistics/h3 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get-host-bw/h3 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get_host_path/h3 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /host-status-connected/h4 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get-host-interface-statistics/h4 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get-host-bw/h4 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get_host_path/h4 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /host-status-connected/h5 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get-host-interface-statistics/h5 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get-host-bw/h5 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get_host_path/h5 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /host-status-connected/h6 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get-host-interface-statistics/h6 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get-host-bw/h6 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get_host_path/h6 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /host-status-connected/hs HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get-host-interface-statistics/hs HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get-host-bw/hs HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get_switch-status-connected/s1 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get_switch_bw/s1/s101 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get_switch-status-connected/s2 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get_switch_bw/s2/s102 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get_switch-status-connected/s3 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get_switch_bw/s3/s102 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get_switch-status-connected/s4 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get_switch_bw/s4/s103 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get_switch-status-connected/s5 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get_switch_bw/s5/s104 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get_switch-status-connected/s6 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get_switch_bw/s6/s104 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:14] "GET /get_dst_switches/s101 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:15] "GET /get_link_information/s101/s0 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:15] "GET /get_link_information/s101/s102 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:15] "GET /get_link_information/s101/s103 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:15] "GET /get_link_information/s101/s104 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:15] "GET /get_dst_switches/s102 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:15] "GET /get_link_information/s102/s0 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:15] "GET /get_link_information/s102/s101 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:15] "GET /get_link_information/s102/s103 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:15] "GET /get_link_information/s102/s104 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:15] "GET /get_dst_switches/s103 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:15] "GET /get_link_information/s103/s0 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:15] "GET /get_link_information/s103/s101 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:15] "GET /get_link_information/s103/s102 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:15] "GET /get_link_information/s103/s104 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:15] "GET /get_dst_switches/s104 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:15] "GET /get_link_information/s104/s0 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:15] "GET /get_link_information/s104/s101 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:15] "GET /get_link_information/s104/s102 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:15] "GET /get_link_information/s104/s103 HTTP/1.1" 200 -
+
+(Reinforcement) <-- Running NetMetricsCalculator ended
+(Reinforcement) ==> Started reading PCAP file /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/tmp/cic_out/tshark_out.pcap_Flow.csv
+(Reinforcement) <== Ended reading PCAP file
+(Reinforcement) ==> Started reading Network metrics file /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/tmp/metrics.json
+(Reinforcement) <== Ended reading Network metrics file
+(Reinforcement) ==> Calculating delay
+(Reinforcement) ====> Host h2 has real delay of 88.88910812457301 ms
+(Reinforcement) ====> Host h3 has real delay of 144.4062141591075 ms
+(Reinforcement) ====> Host h4 has real delay of 114.94300261796293 ms
+(Reinforcement) ====> Host h5 has real delay of 105.26352190165953 ms
+(Reinforcement) ====> Host h6 has real delay of 102.56443929360549 ms
+(Reinforcement) ====> Calculated avg_real_delay = 111.21325721938169 ms
+(Reinforcement) ==> Calculating latency
+(Reinforcement) ====> Host h2 has latency of 4.533052e-05 s
+(Reinforcement) ====> Host h3 has latency of 7.360032608695652e-05 s
+(Reinforcement) ====> Host h4 has latency of 2.27015e-05 s
+(Reinforcement) ====> Host h5 has latency of 0.0005115293052631579 s
+(Reinforcement) ====> Host h6 has latency of 0.0005194841282051282 s
+(Reinforcement) ====> Calculated avg_latency = 0.00023452915591104856 s
+(Reinforcement) ==> Calculating jitter
+(Reinforcement) ====> Host h2 has jitter of 4.520169603524229e-05 s
+(Reinforcement) ====> Host h3 has jitter of 7.30281726618705e-05 s
+(Reinforcement) ====> Host h4 has jitter of 2.2404875e-05 s
+(Reinforcement) ====> Host h5 has jitter of 0.0005017364536082474 s
+(Reinforcement) ====> Host h6 has jitter of 0.0005149104822335025 s
+(Reinforcement) ====> Calculated avg_jitter = 0.00023145633590777255 s
+{'host': {'h1': {'tx_bytes': 16671383, 'rx_bytes': 7470073, 'bandwidth': Decimal('5.2'), 'tx_packets': 0, 'rx_packets': 0, 'tx_packets_len': 0, 'rx_packets_len': 0, 'delivered_pkts': 0.0, 'loss_pct': 0.0, 'is_connected': 1, 'pkts_s': 0.0, 'bytes_s': 0.0, 'non_server_data': {'switches_along_the_path': ['s101'], 'network_metrics': {}, 'default_path_switch': 's101', 'router_switch': 's1'}}, 'h2': {'tx_bytes': 12283268, 'rx_bytes': 20397, 'bandwidth': Decimal('2.2'), 'tx_packets': 451, 'rx_packets': 450, 'tx_packets_len': 24516672, 'rx_packets_len': 0, 'delivered_pkts': 449.99889012208655, 'loss_pct': 0.0022197558268590907, 'is_connected': 1, 'pkts_s': 11.275, 'bytes_s': 612916.8, 'non_server_data': {'switches_along_the_path': ['s102'], 'network_metrics': {'avg_latency_s': 4.533052e-05, 'avg_packet_transmission_time_s': 0.0016675596144419783, 'throughput_bps': 2456284.0, 'avg_jitter_s': 4.520169603524229e-05}, 'default_path_switch': 's102', 'router_switch': 's2'}}, 'h3': {'tx_bytes': 5017464, 'rx_bytes': 15231, 'bandwidth': Decimal('0.7'), 'tx_packets': 278, 'rx_packets': 276, 'tx_packets_len': 9448128, 'rx_packets_len': 0, 'delivered_pkts': 276.99638989169677, 'loss_pct': 0.0036101083032490464, 'is_connected': 1, 'pkts_s': 6.95, 'bytes_s': 236203.2, 'non_server_data': {'switches_along_the_path': ['s102'], 'network_metrics': {'avg_latency_s': 7.360032608695652e-05, 'avg_packet_transmission_time_s': 0.00432736883297117, 'throughput_bps': 946533.6, 'avg_jitter_s': 7.30281726618705e-05}, 'default_path_switch': 's102', 'router_switch': 's3'}}, 'h4': {'tx_bytes': 8538722, 'rx_bytes': 17157, 'bandwidth': Decimal('1.3'), 'tx_packets': 349, 'rx_packets': 348, 'tx_packets_len': 17036168, 'rx_packets_len': 0, 'delivered_pkts': 347.99856527977045, 'loss_pct': 0.0028694404591104697, 'is_connected': 1, 'pkts_s': 8.725, 'bytes_s': 425904.2, 'non_server_data': {'switches_along_the_path': ['s103'], 'network_metrics': {'avg_latency_s': 2.27015e-05, 'avg_packet_transmission_time_s': 0.00239902820615243, 'throughput_bps': 1707358.0, 'avg_jitter_s': 2.2404875e-05}, 'default_path_switch': 's103', 'router_switch': 's4'}}, 'h5': {'tx_bytes': 3480650, 'rx_bytes': 18307, 'bandwidth': Decimal('2.2'), 'tx_packets': 381, 'rx_packets': 380, 'tx_packets_len': 6930448, 'rx_packets_len': 0, 'delivered_pkts': 379.9986859395532, 'loss_pct': 0.0026281208935611975, 'is_connected': 1, 'pkts_s': 9.525, 'bytes_s': 173261.2, 'non_server_data': {'switches_along_the_path': ['s104'], 'network_metrics': {'avg_latency_s': 0.0005115293052631579, 'avg_packet_transmission_time_s': 0.005887307505454671, 'throughput_bps': 695734.0, 'avg_jitter_s': 0.0005017364536082474}, 'default_path_switch': 's104', 'router_switch': 's5'}}, 'h6': {'tx_bytes': 9955256, 'rx_bytes': 18467, 'bandwidth': Decimal('2.5'), 'tx_packets': 391, 'rx_packets': 390, 'tx_packets_len': 19823320, 'rx_packets_len': 0, 'delivered_pkts': 389.9987195902689, 'loss_pct': 0.0025608194622279367, 'is_connected': 1, 'pkts_s': 9.775, 'bytes_s': 495583.0, 'non_server_data': {'switches_along_the_path': ['s104'], 'network_metrics': {'avg_latency_s': 0.0005194841282051282, 'avg_packet_transmission_time_s': 0.002057586707989866, 'throughput_bps': 1990681.6, 'avg_jitter_s': 0.0005149104822335025}, 'default_path_switch': 's104', 'router_switch': 's6'}}, 'hs': {'tx_bytes': 7530008, 'rx_bytes': 55943980, 'bandwidth': Decimal('9.1'), 'tx_packets': 1844, 'rx_packets': 1850, 'tx_packets_len': 0, 'rx_packets_len': 77754736, 'delivered_pkts': 1839.0087491766242, 'loss_pct': 0.005941216661284228, 'is_connected': 1, 'pkts_s': 46.25, 'bytes_s': 1943868.4, 'non_server_data': {'switches_along_the_path': [], 'network_metrics': {}}}}, 'routing': {'s1': {'s101': {'bw': Decimal('5.2')}}, 's2': {'s102': {'bw': Decimal('2.2')}}, 's3': {'s102': {'bw': Decimal('0.7')}}, 's4': {'s103': {'bw': Decimal('1.3')}}, 's5': {'s104': {'bw': Decimal('2.2')}}, 's6': {'s104': {'bw': Decimal('2.5')}}}, 'controlled': {'s101': {'s0': {'bw': 2.5}, 's102': {'bw': 6.1}, 's103': {'bw': 6.7}, 's104': {'bw': 8.5}}, 's102': {'s0': {'bw': 3.1}, 's101': {'bw': 6.1}, 's103': {'bw': 5.2}, 's104': {'bw': 8.8}}, 's103': {'s0': {'bw': 1.9}, 's101': {'bw': 6.7}, 's102': {'bw': 5.2}, 's104': {'bw': 5.5}}, 's104': {'s0': {'bw': 2.2}, 's101': {'bw': 8.5}, 's102': {'bw': 8.8}, 's103': {'bw': 5.5}}}}
+(Reinforcement) <==================== Init Step Ended
+(Reinforcement) ====================> Step 1 (of episode 1) Started
+
+arr_data_per_host
+[[1.66713830e+07 7.47007300e+06 5.20000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 1.00000000e+00 0.00000000e+00 0.00000000e+00]
+ [1.22832680e+07 2.03970000e+04 2.20000000e+00 4.51000000e+02
+  4.50000000e+02 2.45166720e+07 0.00000000e+00 4.49998890e+02
+  2.21975583e-03 1.00000000e+00 1.12750000e+01 6.12916800e+05]
+ [5.01746400e+06 1.52310000e+04 7.00000000e-01 2.78000000e+02
+  2.76000000e+02 9.44812800e+06 0.00000000e+00 2.76996390e+02
+  3.61010830e-03 1.00000000e+00 6.95000000e+00 2.36203200e+05]
+ [8.53872200e+06 1.71570000e+04 1.30000000e+00 3.49000000e+02
+  3.48000000e+02 1.70361680e+07 0.00000000e+00 3.47998565e+02
+  2.86944046e-03 1.00000000e+00 8.72500000e+00 4.25904200e+05]
+ [3.48065000e+06 1.83070000e+04 2.20000000e+00 3.81000000e+02
+  3.80000000e+02 6.93044800e+06 0.00000000e+00 3.79998686e+02
+  2.62812089e-03 1.00000000e+00 9.52500000e+00 1.73261200e+05]
+ [9.95525600e+06 1.84670000e+04 2.50000000e+00 3.91000000e+02
+  3.90000000e+02 1.98233200e+07 0.00000000e+00 3.89998720e+02
+  2.56081946e-03 1.00000000e+00 9.77500000e+00 4.95583000e+05]
+ [7.53000800e+06 5.59439800e+07 9.10000000e+00 1.84400000e+03
+  1.85000000e+03 0.00000000e+00 7.77547360e+07 1.83900875e+03
+  5.94121666e-03 1.00000000e+00 4.62500000e+01 1.94386840e+06]]
+
+1.0
+
+arr_data_per_host_for_path
+[[1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]
+ [0. 0. 0. 1.]]
+
+1.0
+
+arr_data_per_host_for_network_metrics
+[[4.53305200e-05 1.66755961e-03 2.45628400e+06 4.52016960e-05]
+ [7.36003261e-05 4.32736883e-03 9.46533600e+05 7.30281727e-05]
+ [2.27015000e-05 2.39902821e-03 1.70735800e+06 2.24048750e-05]
+ [5.11529305e-04 5.88730751e-03 6.95734000e+05 5.01736454e-04]
+ [5.19484128e-04 2.05758671e-03 1.99068160e+06 5.14910482e-04]]
+
+0.614071
+
+data_per_routing_switch
+[[5.2]
+ [2.2]
+ [0.7]
+ [1.3]
+ [2.2]
+ [2.5]]
+
+0.570957095709571
+
+arr_data_per_controlled_switch_for_s0127.0.0.1 - - [18/May/2026 15:33:15] "GET /get-switches-interfaces HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:15] "GET /get_switch_bw/s101/s103 HTTP/1.1" 200 -
+(7.00Mbit) (7.00Mbit) 127.0.0.1 - - [18/May/2026 15:33:15] "GET /increase-switch-bw/s101/s103/0.3 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:15] "GET /get-switches-interfaces HTTP/1.1" 200 -
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
+(Network) ==> stopping server...
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
+(Network) ==> starting server...
+(Network) ==> Resetting TCP for hosts: ['hs']127.0.0.1 - - [18/May/2026 15:33:15] "GET /reset-tcp-receivers HTTP/1.1" 200 -
+Running as user "root" and group "root". This could be dangerous.
+Capturing on 7 interfaces
+127.0.0.1 - - [18/May/2026 15:33:19] "GET /get-switches-interfaces HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:19] "GET /start-tcp-flow/h2/hs/40000 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:19] "GET /start-tcp-flow/h3/hs/40000 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:19] "GET /start-tcp-flow/h4/hs/40000 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:19] "GET /start-tcp-flow/h5/hs/40000 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:19] "GET /start-tcp-flow/h6/hs/40000 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:20] "GET /get-switches-interfaces HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:20] "GET /start-mhddos/h1/hs/ICMP HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:50] "GET /get-switches-interfaces HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:33:50] "GET /stop-mhddos/h1/hs HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:34:00] "GET /get-switches-interfaces HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:34:00] "GET /stop-all-tcp-flows HTTP/1.1" 200 -
+95727 packets captured
+127.0.0.1 - - [18/May/2026 15:34:19] "GET /get-switches-interfaces HTTP/1.1" 200 -
+State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+LISTEN 0      6         10.0.1.101:80        0.0.0.0:*    users:(("python3",pid=90006,fd=5))
+
+(Network) ==> port <80> in host <hs> is used by 'pid' <90006>
+(Network) ==> stopping server...
+(Network) ==> Stopped TCP for hosts: ['hs']127.0.0.1 - - [18/May/2026 15:34:19] "GET /stop-tcp-receivers HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:34:22] "GET /get-switches-interfaces HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /host-status-connected/h1 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get-host-interface-statistics/h1 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get-host-bw/h1 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_host_path/h1 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /host-status-connected/h2 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get-host-interface-statistics/h2 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get-host-bw/h2 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_host_path/h2 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /host-status-connected/h3 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get-host-interface-statistics/h3 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get-host-bw/h3 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_host_path/h3 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /host-status-connected/h4 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get-host-interface-statistics/h4 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get-host-bw/h4 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_host_path/h4 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /host-status-connected/h5 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get-host-interface-statistics/h5 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get-host-bw/h5 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_host_path/h5 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /host-status-connected/h6 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get-host-interface-statistics/h6 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get-host-bw/h6 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_host_path/h6 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /host-status-connected/hs HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get-host-interface-statistics/hs HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get-host-bw/hs HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_switch-status-connected/s1 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_switch_bw/s1/s101 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_switch-status-connected/s2 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_switch_bw/s2/s102 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_switch-status-connected/s3 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_switch_bw/s3/s102 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_switch-status-connected/s4 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_switch_bw/s4/s103 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_switch-status-connected/s5 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_switch_bw/s5/s104 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_switch-status-connected/s6 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_switch_bw/s6/s104 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_dst_switches/s101 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_link_information/s101/s0 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_link_information/s101/s102 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_link_information/s101/s103 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_link_information/s101/s104 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_dst_switches/s102 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_link_information/s102/s0 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_link_information/s102/s101 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_link_information/s102/s103 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_link_information/s102/s104 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_dst_switches/s103 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_link_information/s103/s0 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_link_information/s103/s101 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_link_information/s103/s102 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_link_information/s103/s104 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_dst_switches/s104 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_link_information/s104/s0 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_link_information/s104/s101 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_link_information/s104/s102 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_link_information/s104/s103 HTTP/1.1" 200 -
+
+[[2.5]
+ [3.1]
+ [1.9]
+ [2.2]]
+
+0.33993399339934
+
+arr_data_per_controlled_switch_for_each_others
+[[6.1]
+ [6.7]
+ [8.5]
+ [5.2]
+ [8.8]
+ [5.5]]
+
+0.9669966996699672
+<--------------------------------------------------------->
+
+
+<------> Taking action randomly: 11
+(Reinforcement) ==> Applying random action: 11 <==> bw:s101:s103:1
+(Reinforcement) ==> link s101<->s103 has BW=6.7
+(Reinforcement) ==> Applying random action: 11 => INCREASE_BW: s101 ==> s103 ==> Applied
+(Reinforcement) ----> Executing tshark  -i 2 -i 3 -i 6 -i 9 -i 12 -i 15 -i 18 -F pcap -w /tmp/tshark_out.pcap
+(Reinforcement) --> TShark sniffing started
+(Reinforcement) ==> Host h2 sending to server hs
+(Reinforcement) ==> Host h3 sending to server hs
+(Reinforcement) ==> Host h4 sending to server hs
+(Reinforcement) ==> Host h5 sending to server hs
+(Reinforcement) ==> Host h6 sending to server hs
+(Reinforcement) ==> attacker h1 is attacking victim hs with ICMP attack
+(Reinforcement) <-- TShark sniffing stopped
+(Reinforcement) ==> PCAP file converted to libpcap format successfully
+(Reinforcement) --> Running CIC started
+(Reinforcement) ----> Executing cd /home/user12/Documents/CICFlowMeter && ./gradlew exeCMD -Psource=/tmp/tshark_out.pcap -Pdestination=/home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/tmp/cic_out
+(Reinforcement) ----> Out: type Jar
+type JavaExec
+:compileJava UP-TO-DATE
+:processResources UP-TO-DATE
+:classes UP-TO-DATE
+:exeCMD
+cic.cs.unb.ca.ifm.Cmd You select: /tmp/tshark_out.pcap
+cic.cs.unb.ca.ifm.Cmd Out folder: /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/tmp/cic_out
+cic.cs.unb.ca.ifm.Cmd CICFlowMeter received 1 pcap file
+Working on... tshark_out.pcap
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow closed due to FIN Flag
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow received 2 FIN packets
+tshark_out.pcap -> 1 flows 
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow closed due to FIN Flag
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow closed due to FIN Flag
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow received 2 FIN packets
+tshark_out.pcap -> 2 flows 
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow closed due to FIN Flag
+tshark_out.pcap -> 3 flows 
+tshark_out.pcap -> 4 flows cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow closed due to FIN Flag
+tshark_out.pcap -> 5 flows 
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow closed due to FIN Flag
+tshark_out.pcap -> 6 flows 
+cic.cs.unb.ca.jnetpcap.FlowGenerator Forward flow closed due to FIN Flag
+tshark_out.pcap -> 7 flows 
+tshark_out.pcap is done. total 12 flows 
+Packet stats: Total=95727,Valid=95529,Discarded=198
+-------------------------------------------------------------------------------
+
+BUILD SUCCESSFUL in 2s
+3 actionable tasks: 1 executed, 2 up-to-date
+
+(Reinforcement) ----> Error: 
+(Reinforcement) <-- Running CIC finished
+(Reinforcement) --> Running NetMetricsCalculator started
+(Reinforcement) ----> Executing /home/user12/myenv/bin/python3 /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/reinforcement/NetMetricsCalculator.py -s 10.0.1.101 -p 80 -hip [10.0.1.2,10.0.1.3,10.0.1.4,10.0.1.5,10.0.1.6] -t 40 -b 512 -pf /tmp/tshark_out.pcap -o /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/tmp/metrics.json
+(Reinforcement) ----> Out: (NetMetricsCalculator) --> Reading pcap file at /tmp/tshark_out.pcap
+(NetMetricsCalculator) --> Host 10.0.1.2 started
+(NetMetricsCalculator) --> Host 10.0.1.3 started
+(NetMetricsCalculator) --> Host 10.0.1.4 started
+(NetMetricsCalculator) --> Host 10.0.1.5 started
+(NetMetricsCalculator) --> Host 10.0.1.6 started
+(NetMetricsCalculator) --> Average latency: 0.00002358163846153846153846153846 seconds (0.02358163846153846153846153846 ms) for 260 packets
+(NetMetricsCalculator) --> Average latency: 0.0002346270676691729323308270677 seconds (0.2346270676691729323308270677 ms) for 399 packets
+(NetMetricsCalculator) --> Average latency: 0.0002424551472081218274111675127 seconds (0.2424551472081218274111675127 ms) for 394 packets
+(NetMetricsCalculator) --> Average latency: 0.00005432251937984496124031007752 seconds (0.05432251937984496124031007752 ms) for 129 packets
+(NetMetricsCalculator) --> Average latency: 0.00004278573109243697478991596639 seconds (0.04278573109243697478991596639 ms) for 238 packets
+(NetMetricsCalculator) --> Average Packet Transmission Time (APTT): 0.0027358545765049404 seconds (2.7358545765049405 ms) for 40 seconds
+(NetMetricsCalculator) --> Average Packet Transmission Time (APTT): 0.0017861740361463016 seconds (1.7861740361463017 ms) for 40 seconds
+(NetMetricsCalculator) --> Average Packet Transmission Time (APTT): 0.017742938778197673 seconds (17.742938778197672 ms) for 40 seconds
+(NetMetricsCalculator) --> Average Packet Transmission Time (APTT): 0.001578453371577943 seconds (1.578453371577943 ms) for 40 seconds
+(NetMetricsCalculator) --> Average Packet Transmission Time (APTT): 0.004376433078824945 seconds (4.376433078824944 ms) for 40 seconds
+(NetMetricsCalculator) --> Throughput: 1497155.6 bps for 40 seconds
+(NetMetricsCalculator) --> Throughput: 2293169.6 bps for 40 seconds
+(NetMetricsCalculator) --> Throughput: 2594945.2 bps for 40 seconds
+(NetMetricsCalculator) --> Throughput: 230852.4 bps for 40 seconds
+(NetMetricsCalculator) --> Throughput: 935922.0 bps for 40 seconds
+(NetMetricsCalculator) --> Average jitter: 0.00002339058396946564885496183206 seconds (0.02339058396946564885496183206 ms) for 524 packets
+(NetMetricsCalculator) <-- Host 10.0.1.4 finished
+(NetMetricsCalculator) --> Average jitter: 0.0002335489127182044887780548628 seconds (0.2335489127182044887780548628 ms) for 802 packets
+(NetMetricsCalculator) <-- Host 10.0.1.6 finished
+(NetMetricsCalculator) --> Average jitter: 0.00005385782307692307692307692308 seconds (0.05385782307692307692307692308 ms) for 260 packets
+(NetMetricsCalculator) <-- Host 10.0.1.3 finished
+(NetMetricsCalculator) --> Average jitter: 0.0000424102125 seconds (0.0424102125 ms) for 480 packets
+(NetMetricsCalculator) <-- Host 10.0.1.2 finished
+(NetMetricsCalculator) --> Average jitter: 0.0002411575681818181818181818182 seconds (0.2411575681818181818181818182 ms) for 792 packets
+(NetMetricsCalculator) <-- Host 10.0.1.5 finished
+{'10.0.1.2': {'avg_latency_s': 4.2785731092436974e-05, 'avg_packet_transmission_time_s': 0.001578453371577943, 'throughput_bps': 2594945.2, 'avg_jitter_s': 4.24102125e-05}, '10.0.1.3': {'avg_latency_s': 5.432251937984496e-05, 'avg_packet_transmission_time_s': 0.004376433078824945, 'throughput_bps': 935922.0, 'avg_jitter_s': 5.3857823076923074e-05}, '10.0.1.4': {'avg_latency_s': 2.358163846153846e-05, 'avg_packet_transmission_time_s': 0.0027358545765049404, 'throughput_bps': 1497155.6, 'avg_jitter_s': 2.339058396946565e-05}, '10.0.1.5': {'avg_latency_s': 0.00024245514720812184, 'avg_packet_transmission_time_s': 0.017742938778197673, 'throughput_bps': 230852.4, 'avg_jitter_s': 0.00024115756818181817}, '10.0.1.6': {'avg_latency_s': 0.00023462706766917292, 'avg_packet_transmission_time_s': 0.0017861740361463016, 'throughput_bps': 2293169.6, 'avg_jitter_s': 0.0002335489127182045}}
+(NetMetricsCalculator) <--> File /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/tmp/metrics.json created...
+
+(Reinforcement) <-- Running NetMetricsCalculator ended
+(Reinforcement) ==> Started reading PCAP file /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/tmp/cic_out/tshark_out.pcap_Flow.csv
+(Reinforcement) <== Ended reading PCAP file
+(Reinforcement) ==> Started reading Network metrics file /home/user12/Documents/rl-countermeasure-selection-for-sdn-attack-mitigation/tmp/metrics.json
+(Reinforcement) <== Ended reading Network metrics file
+(Reinforcement) ==> Calculating reward
+(Reinforcement) ==> Calculating loss
+(Reinforcement) ====> Calculated avg_loss = 0.002080450604078899 %
+(Reinforcement) ==> Calculating delay
+(Reinforcement) ====> Host h2 has real delay of 84.03379869364036 ms
+(Reinforcement) ====> Host h3 has real delay of 154.44245676803817 ms
+(Reinforcement) ====> Host h4 has real delay of 76.92321902611954 ms
+(Reinforcement) ====> Host h5 has real delay of 50.76150306871967 ms
+(Reinforcement) ====> Host h6 has real delay of 50.12535261553431 ms
+(Reinforcement) ====> Calculated avg_real_delay = 83.25726603441042 ms
+(Reinforcement) ==> Calculating throughput
+(Reinforcement) ====> Host h2 has throughput of 2594945.2 bps
+(Reinforcement) ====> Host h3 has throughput of 935922.0 bps
+(Reinforcement) ====> Host h4 has throughput of 1497155.6 bps
+(Reinforcement) ====> Host h5 has throughput of 230852.4 bps
+(Reinforcement) ====> Host h6 has throughput of 2293169.6 bps
+(Reinforcement) ====> Calculated avg_throughput = 1510408.9600000002 bps
+(Reinforcement) ==> Calculating latency
+(Reinforcement) ====> Host h2 has latency of 4.2785731092436974e-05 s
+(Reinforcement) ====> Host h3 has latency of 5.432251937984496e-05 s
+(Reinforcement) ====> Host h4 has latency of 2.358163846153846e-05 s
+(Reinforcement) ====> Host h5 has latency of 0.00024245514720812184 s
+(Reinforcement) ====> Host h6 has latency of 0.00023462706766917292 s
+(Reinforcement) ====> Calculated avg_latency = 0.00011955442076222304 s
+(Reinforcement) ==> Calculating jitter
+(Reinforcement) ====> Host h2 has jitter of 4.24102125e-05 s
+(Reinforcement) ====> Host h3 has jitter of 5.3857823076923074e-05 s
+(Reinforcement) ====> Host h4 has jitter of 2.339058396946565e-05 s
+(Reinforcement) ====> Host h5 has jitter of 0.00024115756818181817 s
+(Reinforcement) ====> Host h6 has jitter of 0.0002335489127182045 s
+(Reinforcement) ====> Calculated avg_jitter = 0.00011887302008928229 s
+(Reinforcement) =====> Calculated latency reward as 3 (done=>True)
+(Reinforcement) =====> Calculated jitter reward as 3 (done=>True)
+DEBUG: r2=3 d2=True r3=3 d3=True avg_latency=0.00011955442076222304 avg_jitter=0.00011887302008928229
+(Reinforcement) <-----> result after calculating reward = 6 (done=True)
+{'host': {'h1': {'tx_bytes': 16198586, 'rx_bytes': 7637177, 'bandwidth': Decimal('5.2'), 'tx_packets': 0, 'rx_packets': 0, 'tx_packets_len': 0, 'rx_packets_len': 0, 'delivered_pkts': 0.0, 'loss_pct': 0.0, 'is_connected': 1, 'pkts_s': 0.0, 'bytes_s': 0.0, 'non_server_data': {'switches_along_the_path': ['s101'], 'network_metrics': {}, 'default_path_switch': 's101', 'router_switch': 's1'}}, 'h2': {'tx_bytes': 12975500, 'rx_bytes': 17399, 'bandwidth': Decimal('2.2'), 'tx_packets': 477, 'rx_packets': 476, 'tx_packets_len': 25905752, 'rx_packets_len': 0, 'delivered_pkts': 475.99895068205666, 'loss_pct': 0.002098635886673671, 'is_connected': 1, 'pkts_s': 11.925, 'bytes_s': 647643.8, 'non_server_data': {'switches_along_the_path': ['s102'], 'network_metrics': {'avg_latency_s': 4.2785731092436974e-05, 'avg_packet_transmission_time_s': 0.001578453371577943, 'throughput_bps': 2594945.2, 'avg_jitter_s': 4.24102125e-05}, 'default_path_switch': 's102', 'router_switch': 's2'}}, 'h3': {'tx_bytes': 4888864, 'rx_bytes': 10553, 'bandwidth': Decimal('0.7'), 'tx_packets': 260, 'rx_packets': 258, 'tx_packets_len': 9343200, 'rx_packets_len': 0, 'delivered_pkts': 258.996138996139, 'loss_pct': 0.0038610038610038637, 'is_connected': 1, 'pkts_s': 6.5, 'bytes_s': 233580.0, 'non_server_data': {'switches_along_the_path': ['s102'], 'network_metrics': {'avg_latency_s': 5.432251937984496e-05, 'avg_packet_transmission_time_s': 0.004376433078824945, 'throughput_bps': 935922.0, 'avg_jitter_s': 5.3857823076923074e-05}, 'default_path_switch': 's102', 'router_switch': 's3'}}, 'h4': {'tx_bytes': 7486552, 'rx_bytes': 18781, 'bandwidth': Decimal('1.3'), 'tx_packets': 521, 'rx_packets': 520, 'tx_packets_len': 14927832, 'rx_packets_len': 0, 'delivered_pkts': 519.9990393852065, 'loss_pct': 0.001921229586935671, 'is_connected': 1, 'pkts_s': 13.025, 'bytes_s': 373195.8, 'non_server_data': {'switches_along_the_path': ['s103'], 'network_metrics': {'avg_latency_s': 2.358163846153846e-05, 'avg_packet_transmission_time_s': 0.0027358545765049404, 'throughput_bps': 1497155.6, 'avg_jitter_s': 2.339058396946565e-05}, 'default_path_switch': 's103', 'router_switch': 's4'}}, 'h5': {'tx_bytes': 1155036, 'rx_bytes': 27695, 'bandwidth': Decimal('2.2'), 'tx_packets': 789, 'rx_packets': 787, 'tx_packets_len': 2255944, 'rx_packets_len': 0, 'delivered_pkts': 787.9987309644671, 'loss_pct': 0.0012690355329948214, 'is_connected': 1, 'pkts_s': 19.725, 'bytes_s': 56398.6, 'non_server_data': {'switches_along_the_path': ['s104'], 'network_metrics': {'avg_latency_s': 0.00024245514720812184, 'avg_packet_transmission_time_s': 0.017742938778197673, 'throughput_bps': 230852.4, 'avg_jitter_s': 0.00024115756818181817}, 'default_path_switch': 's104', 'router_switch': 's5'}}, 'h6': {'tx_bytes': 11466622, 'rx_bytes': 27955, 'bandwidth': Decimal('2.5'), 'tx_packets': 799, 'rx_packets': 798, 'tx_packets_len': 22858184, 'rx_packets_len': 0, 'delivered_pkts': 797.9993738259236, 'loss_pct': 0.0012523481527864674, 'is_connected': 1, 'pkts_s': 19.975, 'bytes_s': 571454.6, 'non_server_data': {'switches_along_the_path': ['s104'], 'network_metrics': {'avg_latency_s': 0.00023462706766917292, 'avg_packet_transmission_time_s': 0.0017861740361463016, 'throughput_bps': 2293169.6, 'avg_jitter_s': 0.0002335489127182045}, 'default_path_switch': 's104', 'router_switch': 's6'}}, 'hs': {'tx_bytes': 7732042, 'rx_bytes': 54171013, 'bandwidth': Decimal('9.1'), 'tx_packets': 2839, 'rx_packets': 2846, 'tx_packets_len': 0, 'rx_packets_len': 75290912, 'delivered_pkts': 2834.0077661462074, 'loss_pct': 0.004213715338648152, 'is_connected': 1, 'pkts_s': 71.15, 'bytes_s': 1882272.8, 'non_server_data': {'switches_along_the_path': [], 'network_metrics': {}}}}, 'routing': {'s1': {'s101': {'bw': Decimal('5.2')}}, 's2': {'s102': {'bw': Decimal('2.2')}}, 's3': {'s102': {'bw': Decimal('0.7')}}, 's4': {'s103': {'bw': Decimal('1.3')}}, 's5': {'s104': {'bw': Decimal('2.2')}}, 's6': {'s104': {'bw': Decimal('2.5')}}}, 'controlled': {'s101': {'s0': {'bw': 2.5}, 's102': {'bw': 6.1}, 's103': {'bw': 7.0}, 's104': {'bw': 8.5}}, 's102': {'s0': {'bw': 3.1}, 's101': {'bw': 6.1}, 's103': {'bw': 5.2}, 's104': {'bw': 8.8}}, 's103': {'s0': {'bw': 1.9}, 's101': {'bw': 7.0}, 's102': {'bw': 5.2}, 's104': {'bw': 5.5}}, 's104': {'s0': {'bw': 2.2}, 's101': {'bw': 8.5}, 's102': {'bw': 8.8}, 's103': {'bw': 5.5}}}}
+
+arr_data_per_host
+[[1.66713830e+07 7.47007300e+06 5.20000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 1.00000000e+00 0.00000000e+00 0.00000000e+00]
+ [1.22832680e+07 2.03970000e+04 2.20000000e+00 4.51000000e+02
+  4.50000000e+02 2.45166720e+07 0.00000000e+00 4.49998890e+02
+  2.21975583e-03 1.00000000e+00 1.12750000e+01 6.12916800e+05]
+ [5.01746400e+06 1.52310000e+04 7.00000000e-01 2.78000000e+02
+  2.76000000e+02 9.44812800e+06 0.00000000e+00 2.76996390e+02
+  3.61010830e-03 1.00000000e+00 6.95000000e+00 2.36203200e+05]
+ [8.53872200e+06 1.71570000e+04 1.30000000e+00 3.49000000e+02
+  3.48000000e+02 1.70361680e+07 0.00000000e+00 3.47998565e+02
+  2.86944046e-03 1.00000000e+00 8.72500000e+00 4.25904200e+05]
+ [3.48065000e+06 1.83070000e+04 2.20000000e+00 3.81000000e+02
+  3.80000000e+02 6.93044800e+06 0.00000000e+00 3.79998686e+02
+  2.62812089e-03 1.00000000e+00 9.52500000e+00 1.73261200e+05]
+ [9.95525600e+06 1.84670000e+04 2.50000000e+00 3.91000000e+02
+  3.90000000e+02 1.98233200e+07 0.00000000e+00 3.89998720e+02
+  2.56081946e-03 1.00000000e+00 9.77500000e+00 4.95583000e+05]
+ [7.53000800e+06 5.59439800e+07 9.10000000e+00 1.84400000e+03
+  1.85000000e+03 0.00000000e+00 7.77547360e+07 1.83900875e+03
+  5.94121666e-03 1.00000000e+00 4.62500000e+01 1.94386840e+06]]
+
+1.0
+
+arr_data_per_host_for_path
+[[1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]
+ [0. 0. 0. 1.]]
+
+1.0
+
+arr_data_per_host_for_network_metrics
+[[4.53305200e-05 1.66755961e-03 2.45628400e+06 4.52016960e-05]
+ [7.36003261e-05 4.32736883e-03 9.46533600e+05 7.30281727e-05]
+ [2.27015000e-05 2.39902821e-03 1.70735800e+06 2.24048750e-05]
+ [5.11529305e-04 5.88730751e-03 6.95734000e+05 5.01736454e-04]
+ [5.19484128e-04 2.05758671e-03 1.99068160e+06 5.14910482e-04]]
+
+0.614071
+
+data_per_routing_switch
+[[5.2]
+ [2.2]
+ [0.7]
+ [1.3]
+ [2.2]
+ [2.5]]
+
+0.570957095709571
+
+arr_data_per_controlled_switch_for_s0
+[[2.5]
+ [3.1]
+ [1.9]
+ [2.2]]
+
+0.33993399339934
+
+arr_data_per_controlled_switch_for_each_others
+[[6.1]
+ [6.7]
+ [8.5]
+ [5.2]
+ [8.8]
+ [5.5]]
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_host_path/h1 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_host_path/h2 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_host_path/h3 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_host_path/h4 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_host_path/h5 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get_host_path/h6 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get-host-bw/h1 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get-host-bw/h2 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get-host-bw/h3 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get-host-bw/h4 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get-host-bw/h5 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get-host-bw/h6 HTTP/1.1" 200 -
+127.0.0.1 - - [18/May/2026 15:35:04] "GET /get-host-bw/hs HTTP/1.1" 200 -
+*** Stopping network
+*** Stopping 0 controllers
+
+*** Stopping 24 links
+........................
+*** Stopping 11 switches
+s0 s1 s2 s3 s4 s5 s6 s101 s102 s103 s104 
+*** Stopping 8 hosts
+h1 h2 h3 h4 h5 h6 hs nat0 
+*** Done
+
+0.9669966996699672
+
+arr_data_per_host
+[[1.61985860e+07 7.63717700e+06 5.20000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 1.00000000e+00 0.00000000e+00 0.00000000e+00]
+ [1.29755000e+07 1.73990000e+04 2.20000000e+00 4.77000000e+02
+  4.76000000e+02 2.59057520e+07 0.00000000e+00 4.75998951e+02
+  2.09863589e-03 1.00000000e+00 1.19250000e+01 6.47643800e+05]
+ [4.88886400e+06 1.05530000e+04 7.00000000e-01 2.60000000e+02
+  2.58000000e+02 9.34320000e+06 0.00000000e+00 2.58996139e+02
+  3.86100386e-03 1.00000000e+00 6.50000000e+00 2.33580000e+05]
+ [7.48655200e+06 1.87810000e+04 1.30000000e+00 5.21000000e+02
+  5.20000000e+02 1.49278320e+07 0.00000000e+00 5.19999039e+02
+  1.92122959e-03 1.00000000e+00 1.30250000e+01 3.73195800e+05]
+ [1.15503600e+06 2.76950000e+04 2.20000000e+00 7.89000000e+02
+  7.87000000e+02 2.25594400e+06 0.00000000e+00 7.87998731e+02
+  1.26903553e-03 1.00000000e+00 1.97250000e+01 5.63986000e+04]
+ [1.14666220e+07 2.79550000e+04 2.50000000e+00 7.99000000e+02
+  7.98000000e+02 2.28581840e+07 0.00000000e+00 7.97999374e+02
+  1.25234815e-03 1.00000000e+00 1.99750000e+01 5.71454600e+05]
+ [7.73204200e+06 5.41710130e+07 9.10000000e+00 2.83900000e+03
+  2.84600000e+03 0.00000000e+00 7.52909120e+07 2.83400777e+03
+  4.21371534e-03 1.00000000e+00 7.11500000e+01 1.88227280e+06]]
+
+1.0
+
+arr_data_per_host_for_path
+[[1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]
+ [0. 0. 0. 1.]]
+
+1.0
+
+arr_data_per_host_for_network_metrics
+[[4.27857311e-05 1.57845337e-03 2.59494520e+06 4.24102125e-05]
+ [5.43225194e-05 4.37643308e-03 9.35922000e+05 5.38578231e-05]
+ [2.35816385e-05 2.73585458e-03 1.49715560e+06 2.33905840e-05]
+ [2.42455147e-04 1.77429388e-02 2.30852400e+05 2.41157568e-04]
+ [2.34627068e-04 1.78617404e-03 2.29316960e+06 2.33548913e-04]]
+
+0.6487363
+
+data_per_routing_switch
+[[5.2]
+ [2.2]
+ [0.7]
+ [1.3]
+ [2.2]
+ [2.5]]
+
+0.570957095709571
+
+arr_data_per_controlled_switch_for_s0
+[[2.5]
+ [3.1]
+ [1.9]
+ [2.2]]
+
+0.33993399339934
+
+arr_data_per_controlled_switch_for_each_others
+[[6.1]
+ [7. ]
+ [8.5]
+ [5.2]
+ [8.8]
+ [5.5]]
+
+0.9669966996699672
+<------> Target Model Updated
+(Reinforcement) <==================== Step 1 (of episode 1) Ended
+(Reinforcement) <================== Episode 1 Ended
+(Reinforcement) ==> New best training checkpoint at episode 1 (reward=6.0)
+(Reinforcement) <-- Network stopped
+{'max_attacker': {'tx_bytes': 16198586, 'rx_bytes': 7637177, 'bandwidth': Decimal('5.2'), 'tx_packets': 0, 'rx_packets': 0, 'tx_packets_len': 0, 'rx_packets_len': 0, 'delivered_pkts': 0, 'loss_pct': 0, 'is_connected': 1, 'pkts_s': 0, 'bytes_s': 0}, 'max_host': {'tx_bytes': 12975500, 'rx_bytes': 27955, 'bandwidth': Decimal('2.5'), 'tx_packets': 799, 'rx_packets': 798, 'tx_packets_len': 25905752, 'rx_packets_len': 0, 'delivered_pkts': 797.9993738259236, 'loss_pct': 0.0038610038610038637, 'is_connected': 1, 'pkts_s': 19.975, 'bytes_s': 647643.8, 'avg_latency_s': 0.00024245514720812184, 'avg_packet_transmission_time_s': 0.017742938778197673, 'throughput_bps': 2594945.2, 'avg_jitter_s': 0.00024115756818181817}, 'max_server': {'tx_bytes': 7732042, 'rx_bytes': 54171013, 'bandwidth': Decimal('9.1'), 'tx_packets': 2839, 'rx_packets': 2846, 'tx_packets_len': 0, 'rx_packets_len': 75290912, 'delivered_pkts': 2834.0077661462074, 'loss_pct': 0.004213715338648152, 'is_connected': 1, 'pkts_s': 71.15, 'bytes_s': 1882272.8}}
+(Reinforcement) ================> Main Ended

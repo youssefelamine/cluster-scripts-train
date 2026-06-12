@@ -1,0 +1,24 @@
+.idea
+.idea/*
+**/__pycache__/
+*.pyc
+venv/
+.venv/
+reinforcement/tmp
+reinforcement/tmp/*
+tools/tmp
+tools/tmp/*
+reinforcement/old_results
+reinforcement/old_results/
+reinforcement/results
+reinforcement/results/
+testing-file*.py
+/2nd plotting/
+/plotting/
+
+# Ignore PNG files
+*.png
+
+# Run outputs and temporary files
+/results/
+/tmp/

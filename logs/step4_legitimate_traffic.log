@@ -1,0 +1,41 @@
+===== BEFORE/AFTER LEGITIMATE TRAFFIC =====
+Mon May 18 03:10:12 PM CEST 2026
+--- s0 ---
+ cookie=0x0, duration=25.311s, table=0, n_packets=0, n_bytes=0, idle_age=25, priority=65535,ip,nw_dst=8.8.8.8 actions=output:6
+ cookie=0x0, duration=25.303s, table=0, n_packets=102, n_bytes=9884, idle_age=4, priority=65535,dl_dst=00:00:00:00:01:00 actions=output:5
+ cookie=0x0, duration=25.296s, table=0, n_packets=0, n_bytes=0, idle_age=25, priority=65535,dl_dst=00:00:00:00:00:01 actions=output:1
+ cookie=0x0, duration=25.288s, table=0, n_packets=52, n_bytes=4984, idle_age=16, priority=65535,dl_dst=00:00:00:00:00:02 actions=output:2
+ cookie=0x0, duration=25.282s, table=0, n_packets=0, n_bytes=0, idle_age=25, priority=65535,dl_dst=00:00:00:00:00:03 actions=output:2
+ cookie=0x0, duration=25.277s, table=0, n_packets=52, n_bytes=4984, idle_age=4, priority=65535,dl_dst=00:00:00:00:00:04 actions=output:3
+ cookie=0x0, duration=25.272s, table=0, n_packets=0, n_bytes=0, idle_age=25, priority=65535,dl_dst=00:00:00:00:00:05 actions=output:4
+ cookie=0x0, duration=25.266s, table=0, n_packets=0, n_bytes=0, idle_age=25, priority=65535,dl_dst=00:00:00:00:00:06 actions=output:4
+ cookie=0x0, duration=25.552s, table=0, n_packets=2, n_bytes=84, idle_age=9, priority=2,arp,arp_op=1 actions=FLOOD
+--- s102 ---
+ cookie=0x0, duration=25.139s, table=0, n_packets=0, n_bytes=0, idle_age=25, priority=65535,ip,nw_dst=8.8.8.8 actions=output:1
+ cookie=0x0, duration=25.187s, table=0, n_packets=51, n_bytes=4942, idle_age=16, priority=65535,dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:01:00 actions=output:1
+ cookie=0x0, duration=25.125s, table=0, n_packets=0, n_bytes=0, idle_age=25, priority=65535,dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:01:00 actions=output:1
+ cookie=0x0, duration=25.177s, table=0, n_packets=52, n_bytes=4984, idle_age=16, priority=65535,dl_dst=00:00:00:00:00:02 actions=output:5
+ cookie=0x0, duration=25.117s, table=0, n_packets=0, n_bytes=0, idle_age=25, priority=65535,dl_dst=00:00:00:00:00:03 actions=output:6
+ cookie=0x0, duration=25.500s, table=0, n_packets=1, n_bytes=42, idle_age=9, priority=499,arp,in_port=1,arp_op=1 actions=output:5,output:6
+ cookie=0x0, duration=25.494s, table=0, n_packets=1, n_bytes=42, idle_age=21, priority=499,arp,in_port=5,arp_op=1 actions=output:1
+ cookie=0x0, duration=25.486s, table=0, n_packets=0, n_bytes=0, idle_age=25, priority=499,arp,in_port=6,arp_op=1 actions=output:1
+ cookie=0x0, duration=25.480s, table=0, n_packets=0, n_bytes=0, idle_age=25, priority=499,arp,in_port=2,arp_op=1 actions=output:1
+ cookie=0x0, duration=25.472s, table=0, n_packets=0, n_bytes=0, idle_age=25, priority=499,arp,in_port=3,arp_op=1 actions=output:1
+ cookie=0x0, duration=25.464s, table=0, n_packets=0, n_bytes=0, idle_age=25, priority=499,arp,in_port=4,arp_op=1 actions=output:1
+ cookie=0x0, duration=25.456s, table=0, n_packets=0, n_bytes=0, idle_age=25, priority=0,arp,arp_op=1 actions=FLOOD
+--- s103 ---
+ cookie=0x0, duration=25.097s, table=0, n_packets=0, n_bytes=0, idle_age=25, priority=65535,ip,nw_dst=8.8.8.8 actions=output:1
+ cookie=0x0, duration=25.088s, table=0, n_packets=51, n_bytes=4942, idle_age=4, priority=65535,dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:01:00 actions=output:1
+ cookie=0x0, duration=25.082s, table=0, n_packets=52, n_bytes=4984, idle_age=4, priority=65535,dl_dst=00:00:00:00:00:04 actions=output:5
+ cookie=0x0, duration=25.461s, table=0, n_packets=1, n_bytes=42, idle_age=21, priority=499,arp,in_port=1,arp_op=1 actions=output:5
+ cookie=0x0, duration=25.454s, table=0, n_packets=1, n_bytes=42, idle_age=9, priority=499,arp,in_port=5,arp_op=1 actions=output:1
+ cookie=0x0, duration=25.449s, table=0, n_packets=0, n_bytes=0, idle_age=25, priority=499,arp,in_port=2,arp_op=1 actions=output:1
+ cookie=0x0, duration=25.442s, table=0, n_packets=0, n_bytes=0, idle_age=25, priority=499,arp,in_port=3,arp_op=1 actions=output:1
+ cookie=0x0, duration=25.432s, table=0, n_packets=0, n_bytes=0, idle_age=25, priority=499,arp,in_port=4,arp_op=1 actions=output:1
+ cookie=0x0, duration=25.424s, table=0, n_packets=0, n_bytes=0, idle_age=25, priority=0,arp,arp_op=1 actions=FLOOD
+--- API s102-s0 ---
+{"bw":"1.0","rx_bytes":8157,"tx_bytes":8157}
+
+--- API s103-s0 ---
+{"bw":"1.9","rx_bytes":8177,"tx_bytes":8177}
+
